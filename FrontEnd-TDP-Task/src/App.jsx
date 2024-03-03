@@ -25,6 +25,7 @@ function App() {
           <Route path="/Login" element={<Login/>}/>
           <Route path="/Register" element={<Register/>}/>
           <Route path="/UpdateBook" element={<UpdateBookDets/>}/>
+          <Route path="/UpdateBook/:id" element={<UpdateBookDets />}/>
         </Routes>
         <Footer />
       </div>
