@@ -2,9 +2,11 @@ const express = require("express")
 const dotenv = require("dotenv")
 const mongoose = require("mongoose")
 const UserRoutes = require("./routes/userRoute.js")
+const bookRoutes = require("./routes/")
 const app = express()
 dotenv.config()
 const cors = require("cors")
+const protect = require("./middleware/authMiddleware.js")
 
 const port = process.env.PORT || 8000
 app.use(cors())
@@ -37,6 +39,7 @@ mongoose.connection.on("connected", () => {
 app.use(express.json({ limit: "3mb" }))
 
 app.use('/api/v1/user', UserRoutes);
+app.use('/api/v1/book', bookRoutes);
 
 
 app.listen(port, () => {
