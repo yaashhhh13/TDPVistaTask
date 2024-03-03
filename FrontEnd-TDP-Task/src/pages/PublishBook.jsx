@@ -15,7 +15,7 @@ const PublishBook = () => {
     const publicationDate = form.publicationDate.value;
     const bookData = { title, author, genre, Description, publicationDate };
   
-    console.log(bookData);
+    // console.log(bookData);
   
     try {
       const response = await fetch('http://localhost:8000/api/v1/book/publishBook', {
@@ -29,11 +29,11 @@ const PublishBook = () => {
       const data = await response.json();
   
       if (data.success) {
-        console.log('Data received from backend successfully');
+        // console.log('Data received from backend successfully');
         localStorage.setItem('token', data.token);
         toast.success(data.message);
         form.reset();
-        navigate('/');
+        navigate('/Readbook');
       } else {
         toast.error(data.message);
       }
@@ -46,44 +46,44 @@ const PublishBook = () => {
   return (
     <>
       {" "}
-      <div class="border">
+      <div className="border">
         <center className="fw-bold fs-1">Publish a book </center>
-        <section class="w-100 h-100 p-4 d-flex justify-content-center pb-4">
+        <section className="w-100 h-100 p-4 d-flex justify-content-center pb-4">
           <form className="width: 22rem;" onSubmit={handlePublishBoookSubmit}>
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form2Example1">
+            <div className="form-outline mb-4">
+              <label className="form-label" for="form2Example1">
                 Title
               </label>
-              <input type="text" id="form2Example1" name="title" class="form-control" />
+              <input type="text" id="form2Example1" name="title" className="form-control" />
             </div>
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form2Example2">
+            <div className="form-outline mb-4">
+              <label className="form-label" for="form2Example2">
                 Author
               </label>
-              <input type="text" id="form2Example2" name="author" class="form-control" />
+              <input type="text" id="form2Example2" name="author" className="form-control" />
             </div>
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form2Example3">
+            <div className="form-outline mb-4">
+              <label className="form-label" for="form2Example3">
                 genre
               </label>
-              <input type="text" id="form2Example3" name="genre" class="form-control" />
+              <input type="text" id="form2Example3" name="genre" className="form-control" />
             </div>
 
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form2Example4">
+            <div className="form-outline mb-4">
+              <label className="form-label" for="form2Example4">
                 Book Description
               </label>
-              <textarea rows={4} type="text" name="Description" id="form2Example4" class="form-control" />
+              <textarea rows={4} type="text" name="Description" id="form2Example4" className="form-control" />
             </div>
 
-            <div class="form-outline mb-4">
-              <label class="form-label" for="form2Example5">
+            <div className="form-outline mb-4">
+              <label className="form-label" for="form2Example5">
                 publication Date
               </label>
-              <input type="date" id="form2Example5" name="publicationDate" class="form-control" />
+              <input type="date" id="form2Example5" name="publicationDate" className="form-control" />
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block mb-4">
+            <button type="submit" className="btn btn-primary btn-block mb-4">
               publish
             </button>
           </form>

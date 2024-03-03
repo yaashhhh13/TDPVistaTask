@@ -36,38 +36,38 @@ const Login = () => {
 
   return (
     <>
-      <div class="border">
-        <section class="w-100 h-100 p-4 d-flex justify-content-center pb-4">
+      <div className="border">
+        <section className="w-100 h-100 p-4 d-flex justify-content-center pb-4">
           <form className="width: 22rem;" onSubmit={handleLoginFormSubmit}>
-            <div class="form-outline mb-4">
+            <div className="form-outline mb-4">
               <input
                 type="email"
                 id="form2Example1"
                 name="email"
-                class="form-control"
+                className="form-control"
               />
-              <label class="form-label" for="form2Example1">
+              <label className="form-label" for="form2Example1">
                 Email address
               </label>
             </div>
 
-            <div class="form-outline mb-4">
+            <div className="form-outline mb-4">
               <input
                 type="password"
                 id="form2Example2"
                 name="password"
-                class="form-control"
+                className="form-control"
               />
-              <label class="form-label" for="form2Example2">
+              <label className="form-label" for="form2Example2">
                 Password
               </label>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block mb-4">
+            <button type="submit" className="btn btn-primary btn-block mb-4">
               Sign in
             </button>
 
-            <div class="text-center">
+            <div className="text-center">
               <p>
                 Not a member? <Link to="/Register">Register</Link>
               </p>

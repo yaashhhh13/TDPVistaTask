@@ -12,7 +12,7 @@ const Register = () => {
     const password = form.password.value;
     const userData = { name, email, password };
   
-    console.log(userData);
+    // console.log(userData);
   
     try {
       const response = await fetch('http://localhost:8000/api/v1/user/register', {
@@ -42,27 +42,27 @@ const Register = () => {
 
   return (
     <>
-      <div class="border">
+      <div className="border">
         <center className="fw-bold fs-1">Register a New User </center>
-        <section class="w-100 h-100 p-4 d-flex justify-content-center pb-4">
+        <section className="w-100 h-100 p-4 d-flex justify-content-center pb-4">
           <form className="width: 22rem;" onSubmit={handleFormSubmit}>
-            <div class="form-outline mb-4">
-              <input type="text" id="form2Example1" name="name" class="form-control" />
-              <label class="form-label" for="form2Example1">
+            <div className="form-outline mb-4">
+              <input type="text" id="form2Example1" name="name" className="form-control" />
+              <label className="form-label" for="form2Example1">
                 Full name
               </label>
             </div>
 
-            <div class="form-outline mb-4">
-              <input type="email" id="form2Example2" name="email" class="form-control" />
-              <label class="form-label" for="form2Example2">
+            <div className="form-outline mb-4">
+              <input type="email" id="form2Example2" name="email" className="form-control" />
+              <label className="form-label" for="form2Example2">
                 Email address
               </label>
             </div>
 
-            <div class="form-outline mb-4">
-              <input type="password" id="form2Example3" name="password" class="form-control" />
-              <label class="form-label" for="form2Example3">
+            <div className="form-outline mb-4">
+              <input type="password" id="form2Example3" name="password" className="form-control" />
+              <label className="form-label" for="form2Example3">
                 Password
               </label>
             </div>
@@ -71,7 +71,7 @@ const Register = () => {
               Register
             </button>
 
-            <div class="text-center">
+            <div className="text-center">
               <p>
                 Not a member? <Link to="/Register">Register</Link>
               </p>

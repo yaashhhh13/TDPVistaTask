@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <div class="container my-5">
-        <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-          <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-            <h1 class="display-4 fw-bold lh-4">Readisphere</h1>
-            <p class="lead">
+      <div className="container my-5">
+        <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+          <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
+            <h1 className="display-4 fw-bold lh-4">Readisphere</h1>
+            <p className="lead">
               Welcome to BookVerse, your premier destination for all things
               literary. Immerse yourself in a universe where tales unfurl with
               every turn of the page. With a vast selection of genres and
@@ -17,25 +17,25 @@ const Home = () => {
               user-friendly interface ensures seamless navigation, allowing you
               to lose yourself in the magic of storytelling.
             </p>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+            <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
               <Link to='Readbook'>
               <button
                 type="button"
-                class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
+                className="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
               >
                 Read Books
               </button></Link>
               <Link to='publishbook'><button
                 type="button"
-                class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
+                className="btn btn-primary btn-lg px-4 me-md-2 fw-bold"
               >
                 Publish Book
               </button></Link>
             </div>
           </div>
-          <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
+          <div className="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
             <img
-              class="rounded-lg-3"
+              className="rounded-lg-3"
               src="https://cdn.pixabay.com/photo/2020/09/07/09/30/tablet-5551322_640.jpg"
               alt=""
               width="720"

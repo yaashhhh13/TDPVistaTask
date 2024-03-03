@@ -3,10 +3,10 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const userRegisterController = async (req, res) => {
-    console.log("starting backend user registration process");
+    // console.log("starting backend user registration process");
 
     try {
-        console.log(req.body)
+        // console.log(req.body)
         const existingUser = await userModel.findOne({ email: req.body.email });
         if (existingUser) {
             return res.status(200).send({
@@ -15,14 +15,14 @@ const userRegisterController = async (req, res) => {
             });
         }
 
-        console.log("mixing pass")
+        // console.log("mixing pass")
 
         const password = req.body.password;
         const salt = await bcrypt.genSalt(10);
         const hashPassword = await bcrypt.hash(password, salt);
         req.body.password = hashPassword;
 
-        console.log("password mixed")
+        // console.log("password mixed")
 
         const newUser = new userModel({
             name: req.body.name,
@@ -31,10 +31,10 @@ const userRegisterController = async (req, res) => {
         });
 
         await newUser.save();
-        console.log("done backend part")
+        // console.log("done backend part")
         const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: "1d" });
 
-        console.log(token)
+        // console.log(token)
 
         return res.status(201).send({
             message: "user registered successfully",
@@ -60,7 +60,7 @@ const authController = async (req, res) => {
             _id: req.body.userId
         })
 
-        console.log(user)
+        // console.log(user)
 
         if (!user) {
             return res.status(200).send({

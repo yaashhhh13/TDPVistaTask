@@ -3,7 +3,7 @@ const bookModel = require("../model/book.js")
 
 const CreateBook = async (req, res) => {
     try {
-        console.log("starting backend book publishing process")
+        // console.log("starting backend book publishing process")
 
         const { title, author, genre, Description, publicationDate } = req.body;
         const newBook = new bookModel({
@@ -52,7 +52,6 @@ const getAllBooks = async (req, res) => {
     }
 }
 
-
 const GetBookById = async (req, res) => {
     try {
 
@@ -77,29 +76,29 @@ const GetBookById = async (req, res) => {
     }
 }
 
-
 const UpdatebookDetails = async (req, res) => {
     try {
 
-        // console.log(req.body)
+        const { title, author, genre, Description, publicationDate } = req.body;
 
-        const book = await bookModel.findById({_id: req.body.bookId});
-
-        title= req.body.title || title,
-        author= req.body.author || author,
-        genre= req.body.genre || genre,
-        Description= req.body.Description || Description,
-        publicationDate= req.body.publicationDate || publicationDate
-
-        await book.save();
+        const book = await bookModel.findById(req.body.bookID);
 
         if (!book) {
-            return res.status(200).send({
-                message: "book not found",
+            return res.status(404).send({
+                message: "Book not found",
                 success: false
-            })
+            });
         }
 
+        // Update book details
+        book.title = title || book.title;
+        book.author = author || book.author;
+        book.genre = genre || book.genre;
+        book.Description = Description || book.Description;
+        book.publicationDate = publicationDate || book.publicationDate;
+
+        // Save the updated book
+        await book.save();
 
         return res.status(201).send({
             message: "profile details updated succesfully",
@@ -116,5 +115,30 @@ const UpdatebookDetails = async (req, res) => {
     }
 }
 
+const DeleteBook = async (req, res) => {
+    try {
+        const bookId = req.params.id;
+        // console.log(bookId)
+        const deletedBook = await bookModel.findByIdAndDelete(bookId);
 
-module.exports = { CreateBook, getAllBooks, GetBookById, UpdatebookDetails }
+        if (!deletedBook) {
+            return res.status(404).send({
+                success: false,
+                message: "Book not found",
+            });
+        }
+
+        return res.status(200).send({
+            success: true,
+            message: "Book deleted successfully",
+        });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send({
+            success: false,
+            message: "Internal server error",
+        });
+    }
+};
+
+module.exports = { CreateBook, getAllBooks, GetBookById, UpdatebookDetails, DeleteBook }
